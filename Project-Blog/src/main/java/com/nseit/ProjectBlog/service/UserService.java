@@ -14,6 +14,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<UserModel> view() {
+
         return userRepository.findAll();
     }
 }
