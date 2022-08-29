@@ -4,21 +4,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.awt.*;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "post")
-public class PostModel {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String description;
     private String  image;
-    @ManyToOne
-    @JoinColumn(name = "users_Id", nullable = false,referencedColumnName = "userId")
-    private UserModel userModel;
+    @ManyToMany
+    @JoinTable(name = "post_user",
+            joinColumns = @JoinColumn(name = "post_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"))
+    private Set<Users> users;
 }

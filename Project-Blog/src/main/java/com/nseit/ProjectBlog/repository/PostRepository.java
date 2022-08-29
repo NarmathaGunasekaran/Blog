@@ -1,9 +1,9 @@
 package com.nseit.ProjectBlog.repository;
 
-import com.nseit.ProjectBlog.model.PostModel;
+import com.nseit.ProjectBlog.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostRepository extends JpaRepository<PostModel, Integer> {
+public interface PostRepository extends JpaRepository<Post, Integer> {
 }
