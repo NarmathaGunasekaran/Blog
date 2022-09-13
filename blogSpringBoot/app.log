@@ -36,3 +36,18 @@
 2022-09-13 18:12:45 - WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m19s176ms197µs700ns).
 2022-09-13 18:27:26 - INFO - HikariPool-1 - Shutdown initiated...
 2022-09-13 18:27:26 - INFO - HikariPool-1 - Shutdown completed.
+2022-09-13 18:27:32 - INFO - Starting BlogSpringBootApplication using Java 18.0.2 on DELL-CTF8DL3 with PID 22452 (D:\Project\blogSpringBoot\target\classes started by Administrator in D:\Project\blogSpringBoot)
+2022-09-13 18:27:32 - INFO - No active profile set, falling back to 1 default profile: "default"
+2022-09-13 18:27:34 - INFO - Starting service [Tomcat]
+2022-09-13 18:27:34 - INFO - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-13 18:27:34 - INFO - Initializing Spring embedded WebApplicationContext
+2022-09-13 18:27:34 - INFO - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-13 18:27:34 - INFO - HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-13 18:27:34 - INFO - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-13 18:27:34 - INFO - HikariPool-1 - Starting...
+2022-09-13 18:27:35 - INFO - HikariPool-1 - Start completed.
+2022-09-13 18:27:35 - INFO - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-13 18:27:35 - INFO - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-13 18:27:36 - INFO - Started BlogSpringBootApplication in 4.193 seconds (JVM running for 4.527)
+2022-09-13 18:34:32 - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-13 22:15:38 - WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h1m31s57ms836µs200ns).
