@@ -1,15 +1,15 @@
-package com.codewithashith.Delete_blog.controller;
+package com.nseit.blogSpringBoot.controller;
 
-import com.codewithashith.Delete_blog.model.BlogUser;
-import com.codewithashith.Delete_blog.response.APIResponse;
-import com.codewithashith.Delete_blog.service.UserService;
+import com.nseit.blogSpringBoot.model.BlogUser;
+import com.nseit.blogSpringBoot.response.APIResponse;
+import com.nseit.blogSpringBoot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(value = {"http://localhost:3000"})
 @RequestMapping("/api/auth")
 public class AuthController {
 

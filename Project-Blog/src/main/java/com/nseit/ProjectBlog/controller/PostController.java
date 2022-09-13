@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/post")
+@RequestMapping("/api/post")
 @RestController
 public class PostController {
     @Autowired

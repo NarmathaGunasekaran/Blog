@@ -1,4 +1,4 @@
-package com.codewithashith.Delete_blog.response;
+package com.nseit.blogSpringBoot.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

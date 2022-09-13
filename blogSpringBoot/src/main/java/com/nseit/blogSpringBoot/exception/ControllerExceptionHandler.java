@@ -1,7 +1,7 @@
-package com.codewithashith.Delete_blog.exception;
+package com.nseit.blogSpringBoot.exception;
 
-import com.codewithashith.Delete_blog.response.APIResponse;
-import com.codewithashith.Delete_blog.response.ErrorResponse;
+import com.nseit.blogSpringBoot.response.APIResponse;
+import com.nseit.blogSpringBoot.response.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,35 +23,35 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<APIResponse> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
         apiResponse = errorResponseBuilder(ex.getMessage(), request);
-        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @ExceptionHandler(ResourceAlreadyExistException.class)
     public ResponseEntity<APIResponse> userExistException(ResourceAlreadyExistException ex, WebRequest request) {
         apiResponse = errorResponseBuilder(ex.getMessage(), request);
 
-        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @ExceptionHandler(UnableToInsertException.class)
     public ResponseEntity<APIResponse> unableToInsertException(ResourceAlreadyExistException ex, WebRequest request) {
         apiResponse = errorResponseBuilder(ex.getMessage(), request);
 
-        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @ExceptionHandler(UnableToUpdateException.class)
     public ResponseEntity<APIResponse> unableToUpdateException(ResourceAlreadyExistException ex, WebRequest request) {
         apiResponse = errorResponseBuilder(ex.getMessage(), request);
 
-        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<APIResponse> globalExceptionHandler(Exception ex, WebRequest request) {
         apiResponse = errorResponseBuilder(ex.getMessage(), request);
 
-        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     private APIResponse errorResponseBuilder(String ex, WebRequest request) {

@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    List<BlogUser> getStudents() {
+    List<BlogUser> get() {
         return userService.getAllUsers();
     }
 }

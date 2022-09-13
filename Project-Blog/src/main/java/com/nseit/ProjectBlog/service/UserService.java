@@ -1,5 +1,6 @@
 package com.nseit.ProjectBlog.service;
 
+import com.nseit.ProjectBlog.exception.UserExistException;
 import com.nseit.ProjectBlog.model.BlogUser;
 import com.nseit.ProjectBlog.model.Role;
 import com.nseit.ProjectBlog.repository.RoleRepository;
@@ -21,9 +22,13 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private RoleRepository  roleRepository;
+    private RoleRepository roleRepository;
 
     public BlogUser registerAsCustomer(BlogUser blogUser) {
+        BlogUser user = userRepository.findByUserName(blogUser.getUserName());
+        if (user != null) {
+            throw new UserExistException("User Already Exception");
+        }
         Role role = roleRepository.findByName(Role.ROLE_USER);
         blogUser.setRoles(Set.of(role));
         blogUser.setPassword(bCryptPasswordEncoder.encode(blogUser.getPassword()));
@@ -36,7 +41,7 @@ public class UserService {
 
     public BlogUser loginAsCustomer(BlogUser blogUser) {
         BlogUser user = userRepository.findByUserName(blogUser.getUserName());
-        if (user != null && bCryptPasswordEncoder.matches(user.getPassword(), user.getPassword())) {
+        if (user != null && bCryptPasswordEncoder.matches(blogUser.getPassword(), user.getPassword())) {
             return user;
         }
         return null;

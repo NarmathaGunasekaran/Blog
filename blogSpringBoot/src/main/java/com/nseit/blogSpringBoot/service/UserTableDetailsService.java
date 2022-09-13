@@ -1,8 +1,8 @@
-package com.nseit.ProjectBlog.service;
+package com.nseit.blogSpringBoot.service;
 
-import com.nseit.ProjectBlog.model.Role;
-import com.nseit.ProjectBlog.model.BlogUser;
-import com.nseit.ProjectBlog.repository.UserRepository;
+import com.nseit.blogSpringBoot.model.BlogUser;
+import com.nseit.blogSpringBoot.model.Role;
+import com.nseit.blogSpringBoot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

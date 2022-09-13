@@ -1,19 +1,19 @@
-package com.codewithashith.Delete_blog.controller;
+package com.nseit.blogSpringBoot.controller;
 
-import com.codewithashith.Delete_blog.model.Post;
-import com.codewithashith.Delete_blog.model.Role;
-import com.codewithashith.Delete_blog.response.APIResponse;
-import com.codewithashith.Delete_blog.service.PostService;
+import com.nseit.blogSpringBoot.model.Post;
+import com.nseit.blogSpringBoot.model.Role;
+import com.nseit.blogSpringBoot.response.APIResponse;
+import com.nseit.blogSpringBoot.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(value = {"http://localhost:3000"})
 @RequestMapping("/api/post")
 public class PostController {
 
@@ -23,7 +23,8 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @Secured({Role.ROLE_ADMIN, Role.ROLE_USER})
+//    @Secured({Role.ROLE_ADMIN, Role.ROLE_USER})
+
     @GetMapping("/all")
     public ResponseEntity<APIResponse> getAllPost() {
 
@@ -34,16 +35,16 @@ public class PostController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<APIResponse> getUserPost(@PathVariable Integer userId) {
-
+    @GetMapping("/{id}")
+    public ResponseEntity<APIResponse> getUserPost(@PathVariable Integer id) {
+        List<Post> posts = postService.getAllPosts();
         apiResponse.setStatus(HttpStatus.CREATED.value());
-        apiResponse.setData(null);
+        apiResponse.setData(posts);
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
 
-    @Secured({Role.ROLE_ADMIN})
+//    @Secured({Role.ROLE_ADMIN})
     @PostMapping
     public ResponseEntity<APIResponse> createPost(@RequestBody Post post) {
 
@@ -54,7 +55,7 @@ public class PostController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-    @Secured({Role.ROLE_ADMIN})
+//    @Secured({Role.ROLE_ADMIN})
     @PutMapping
     public ResponseEntity<APIResponse> updatePost(@RequestBody Post post) {
 
@@ -65,11 +66,11 @@ public class PostController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-    @Secured({Role.ROLE_ADMIN})
-    @DeleteMapping("/{postId}")
-    public ResponseEntity<APIResponse> deleteUserPost(@PathVariable Integer postId) {
+//    @Secured({Role.ROLE_ADMIN})
+    @DeleteMapping("/{id}")
+    public ResponseEntity<APIResponse> deleteUserPost(@PathVariable Integer id) {
 
-        postService.deletePost(postId);
+        postService.deletePost(id);
 
         apiResponse.setStatus(HttpStatus.CREATED.value());
         apiResponse.setData(postService.getAllPosts());

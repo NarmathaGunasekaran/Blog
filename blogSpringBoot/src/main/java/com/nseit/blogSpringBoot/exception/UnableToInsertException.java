@@ -1,4 +1,4 @@
-package com.codewithashith.Delete_blog.exception;
+package com.nseit.blogSpringBoot.exception;
 
 public class UnableToInsertException extends RuntimeException {
     public UnableToInsertException(String msg) {

@@ -1,4 +1,7 @@
-package com.codewithashith.BookArtAPI.utils;
+package com.nseit.ProjectBlog.utils;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,9 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
-import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploadUtil {
     public static String saveFile(String fileName, MultipartFile multipartFile)

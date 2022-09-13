@@ -1,16 +1,8 @@
-package com.codewithashith.BookArtAPI.response;
+package com.nseit.ProjectBlog.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-
-@Getter
-@Setter
 public class ErrorResponse {
 
     private String message;
@@ -18,6 +10,22 @@ public class ErrorResponse {
 
     public ErrorResponse(String message, String description) {
         this.message = message;
+        this.description = description;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 }

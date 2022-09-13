@@ -1,4 +1,4 @@
-package com.codewithashith.Delete_blog.exception;
+package com.nseit.blogSpringBoot.exception;
 
 public class ResourceAlreadyExistException extends RuntimeException {
     private static final long serialVersionUID = 1L;
