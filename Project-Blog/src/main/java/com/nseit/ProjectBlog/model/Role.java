@@ -1,14 +1,19 @@
 package com.nseit.ProjectBlog.model;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
-    public static final String ROLE_USER = "CUSTOMER";
+
+    public static final String ROLE_USER = "USER";
     public static final String ROLE_ADMIN = "ADMIN";
 
     @Id
@@ -16,7 +21,7 @@ public class Role {
     private int id;
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
-    private Set<Users> bookUsers;
-
+    private Set<BlogUser> blogUsers;
 }

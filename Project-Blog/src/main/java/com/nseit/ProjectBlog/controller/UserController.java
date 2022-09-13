@@ -1,6 +1,6 @@
 package com.nseit.ProjectBlog.controller;
 
-import com.nseit.ProjectBlog.model.Users;
+import com.nseit.ProjectBlog.model.BlogUser;
 import com.nseit.ProjectBlog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    List<Users> getStudents() {
-        return userService.findAll();
+    List<BlogUser> getStudents() {
+        return userService.getAllUsers();
     }
 }
