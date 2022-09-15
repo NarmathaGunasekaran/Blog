@@ -4,13 +4,12 @@ import blogApi from "../api/blog";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-    const [loggedInUser, setLoggedInUser] = useState({  
+    const [loggedInUser, setLoggedInUser] = useState({
         userId: 0,
         userName: "",
-        isLoggedIn: true,
+        isLoggedIn: false,
     });
-    
-  
+
     const [blog, setBlogs] = useState([]);
 
     const searchblog = (userName) => {

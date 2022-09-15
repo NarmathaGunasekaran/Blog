@@ -1,4 +1,4 @@
-package com.codewithashith.BookArtAPI.utils;
+package com.nseit.blogSpringBoot.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;

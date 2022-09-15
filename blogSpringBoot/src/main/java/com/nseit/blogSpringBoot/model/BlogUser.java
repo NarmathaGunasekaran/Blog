@@ -37,8 +37,8 @@ public class BlogUser {
         this.password = password;
     }
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "blogUser", cascade = CascadeType.REMOVE)
-    private Set<Comment> comments;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "blogUser", cascade = CascadeType.REMOVE)
+//    private Set<Comment> comments;
 
 }

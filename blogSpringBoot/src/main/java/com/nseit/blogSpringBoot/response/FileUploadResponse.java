@@ -1,4 +1,4 @@
-package com.codewithashith.BookArtAPI.response;
+package com.nseit.blogSpringBoot.response;
 
 import lombok.Getter;
 import lombok.Setter;

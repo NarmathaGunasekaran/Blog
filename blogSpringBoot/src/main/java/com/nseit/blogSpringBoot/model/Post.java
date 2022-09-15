@@ -19,7 +19,7 @@ public class Post {
     private Integer id;
     private String title;
     private String description;
-    private String image;
+//    private String image;
 
     @JsonIgnore
     @ManyToMany
@@ -28,7 +28,11 @@ public class Post {
             inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     private Set<BlogUser> blogUser;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "posts", cascade = CascadeType.REMOVE)
-    private Set<Comment> comments;
+//    @OneToOne
+//    @JoinColumn(name = "file_id", referencedColumnName = "id")
+//    private File file;
+
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "posts", cascade = CascadeType.REMOVE)
+//    private Set<Comment> comments;
 }

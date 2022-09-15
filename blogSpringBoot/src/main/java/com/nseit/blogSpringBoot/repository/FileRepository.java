@@ -1,12 +1,10 @@
-package com.codewithashith.BookArtAPI.repository;
+package com.nseit.blogSpringBoot.repository;
 
-import com.codewithashith.BookArtAPI.model.Book;
-import com.codewithashith.BookArtAPI.model.File;
+import com.nseit.blogSpringBoot.model.File;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface FileRepository extends JpaRepository<File, Integer> {
+
 }

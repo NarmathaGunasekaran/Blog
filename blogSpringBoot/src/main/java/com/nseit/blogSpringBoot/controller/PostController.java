@@ -1,13 +1,11 @@
 package com.nseit.blogSpringBoot.controller;
 
 import com.nseit.blogSpringBoot.model.Post;
-import com.nseit.blogSpringBoot.model.Role;
 import com.nseit.blogSpringBoot.response.APIResponse;
 import com.nseit.blogSpringBoot.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +26,7 @@ public class PostController {
     @GetMapping("/all")
     public ResponseEntity<APIResponse> getAllPost() {
 
-        List<Post> posts = postService.getAllPosts();
+        List<Post> posts = postService.getAllPost();
 
         apiResponse.setStatus(HttpStatus.CREATED.value());
         apiResponse.setData(posts);
@@ -37,25 +35,25 @@ public class PostController {
 
     @GetMapping("/{id}")
     public ResponseEntity<APIResponse> getUserPost(@PathVariable Integer id) {
-        List<Post> posts = postService.getAllPosts();
+        Post post = postService.getUserPost(id);
         apiResponse.setStatus(HttpStatus.CREATED.value());
-        apiResponse.setData(posts);
+        apiResponse.setData(post);
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
 
-//    @Secured({Role.ROLE_ADMIN})
+    //    @Secured({Role.ROLE_ADMIN})
     @PostMapping
-    public ResponseEntity<APIResponse> createPost(@RequestBody Post post) {
+    public ResponseEntity<APIResponse> add(@RequestBody Post post) {
 
-        Post createdPost = postService.createPost(post);
+        Post createdPost = postService.add(post);
 
         apiResponse.setStatus(HttpStatus.CREATED.value());
         apiResponse.setData(createdPost);
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-//    @Secured({Role.ROLE_ADMIN})
+    //    @Secured({Role.ROLE_ADMIN})
     @PutMapping
     public ResponseEntity<APIResponse> updatePost(@RequestBody Post post) {
 
@@ -66,14 +64,14 @@ public class PostController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-//    @Secured({Role.ROLE_ADMIN})
+    //    @Secured({Role.ROLE_ADMIN})
     @DeleteMapping("/{id}")
     public ResponseEntity<APIResponse> deleteUserPost(@PathVariable Integer id) {
 
         postService.deletePost(id);
 
         apiResponse.setStatus(HttpStatus.CREATED.value());
-        apiResponse.setData(postService.getAllPosts());
+        apiResponse.setData(postService.getAllPost());
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 

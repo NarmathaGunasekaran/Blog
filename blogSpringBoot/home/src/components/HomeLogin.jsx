@@ -23,19 +23,19 @@ const HomeLogin = () => {
     blogApi
       .get(`post/all`)
 
-    .then((res) => {
-      let data = res.data;
-      if (data.data) {
-        console.log(data.data)
-        setBlogs(data.data);
-      } else if (res.data.error) {
-        console.log(res.data.error.message);
-      } else {
-        console.log("Something went wrong");
-      }
-    })
-    .catch((err)=> console.log(err));
-  },[]);
+      .then((res) => {
+        let data = res.data;
+        if (data.data) {
+          console.log(data.data)
+          setBlogs(data.data);
+        } else if (res.data.error) {
+          console.log(res.data.error.message);
+        } else {
+          console.log("Something went wrong");
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div>
       <AppNav />
@@ -51,11 +51,12 @@ const HomeLogin = () => {
               return (
                 <Col key={index} md={5}>
                   {/* {Blogs.map((blog) => { */}
-                    <BlogItem
-                      name={blog.title}
-                      desc={blog.description}
-                      image={blog.image}
-                    />
+                  <BlogItem
+                    name={blog.title}
+                    desc={blog.description}
+                    image={blog.image}
+                    id={blog.id}
+                  />
                   {/* })} */}
                 </Col>
               );

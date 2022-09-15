@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import blogApi from '../api/blog';
-import "../assets/css/login.css"
+import { UserContext } from "../../context/UserContext";
+import blogApi from '../../api/blog';
+import "../../assets/css/login.css"
 
 const LoginComponents = () => {
     const navigate = useNavigate();
@@ -24,7 +24,10 @@ const LoginComponents = () => {
                     let loggedInUser = res.data.data;
                     loggedInUser.isLoggedIn = true;
                     setLoggedInUser(loggedInUser);
-                    navigate("/");
+                    if (loggedInUser.role === "ADMIN") {
+                        navigate("/admin")
+                    } else
+                        navigate("/");
                 } else if (res.data.error) {
                     console.log(res.data.error.message);
                 } else {
@@ -70,9 +73,7 @@ const LoginComponents = () => {
                                                 }}
                                             />
                                             <label className="form-text text-danger">
-
                                                 {loginError.userName}
-
                                             </label>
                                         </div>
 
@@ -94,12 +95,9 @@ const LoginComponents = () => {
                                                 }}
                                             />
                                             <label className="form-text text-danger">
-
                                                 {loginError.password}
-
                                             </label>
                                         </div>
-
                                         <div className="row justify-content-center my-3 px-3">
                                             <button className="btn-block btn-color" type="submit"
                                                 onClick={(event) => loginAPI(event)}

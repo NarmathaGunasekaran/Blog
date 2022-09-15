@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const blogApi = axios.create({
-    baseURL: "http://localhost:8081/api",
+    baseURL: "http://localhost:8082/api",
     timeout: 2000,
     headers: { "X-Custom-Header": "foobar" },
 });
 
 blogApi.interceptors.request.use(request => {
-    console.log('Starting Request', JSON.stringify(request, null, 2))
+    // console.log('Starting Request', JSON.stringify(request, null, 2))
     return request
 })
 

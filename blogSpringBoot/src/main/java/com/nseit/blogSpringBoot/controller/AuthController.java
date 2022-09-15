@@ -1,7 +1,9 @@
 package com.nseit.blogSpringBoot.controller;
 
 import com.nseit.blogSpringBoot.model.BlogUser;
+import com.nseit.blogSpringBoot.model.Role;
 import com.nseit.blogSpringBoot.response.APIResponse;
+import com.nseit.blogSpringBoot.response.AuthResponse;
 import com.nseit.blogSpringBoot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,13 +21,12 @@ public class AuthController {
     @Autowired
     private APIResponse apiResponse;
 
-
     @PostMapping("/login")
     public ResponseEntity<APIResponse> login(@RequestBody BlogUser blogUser) {
+        System.out.println("called");
+        AuthResponse loggedInUser = userService.login(blogUser);
 
-        BlogUser loggedInUser = userService.login(blogUser);
-
-        apiResponse.setStatus(HttpStatus.CREATED.value());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(loggedInUser);
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }

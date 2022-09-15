@@ -4,7 +4,7 @@ import HomeLogin from '../components/HomeLogin'
 const Homepage = () => {
   return (
     <div>
-        <HomeLogin/>
+      <HomeLogin />
     </div>
   )
 }

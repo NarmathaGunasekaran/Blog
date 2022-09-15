@@ -1,4 +1,4 @@
-package com.codewithashith.BookArtAPI.model;
+package com.nseit.blogSpringBoot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -18,11 +18,12 @@ public class File {
     private Integer id;
     private String Location;
 
+    @JsonIgnore
     @Column(name = "image", unique = false, nullable = false, length = 100000)
     private byte[] image;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "file")
-    private Book book;
+//    @JsonIgnore
+//    @OneToOne(mappedBy = "file")
+//    private Post post;
 
 }
